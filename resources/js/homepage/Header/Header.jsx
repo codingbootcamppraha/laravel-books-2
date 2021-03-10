@@ -16,7 +16,14 @@ export default function Header(props) {
 
                 <a href="/book-of-the-week">Book of the week</a>
 
-                <Link to="/home/login">Login</Link>
+                {
+                    props.user ? (
+                        <div className="user-info">
+                            Logged in as { props.user.name }
+                        </div>
+                    ) : <Link to="/home/login">Login</Link>
+                }
+
             </nav>
 
         </header>

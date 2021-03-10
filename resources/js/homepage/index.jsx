@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import {
     BrowserRouter as Router,
@@ -15,10 +15,43 @@ import './index.scss';
 
 function App() {
 
+    const [api_token, setApiToken] = useState(localStorage.getItem('api_token'));
+
+    const [user, setUser] = useState(null);
+
+    const setToken = (token) => {
+
+        setApiToken(token);
+
+        localStorage.setItem('api_token', token);
+    }
+
+    const loadCurrentUser = async () => {
+        console.log('Loading current user information');
+
+        const response = await fetch('/api/user', {
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json',
+                'Authorization': `Bearer ${api_token}`
+            }
+        });
+
+        const data = await response.json();
+
+        setUser(data.user);
+    }
+
+    useEffect(() => {
+        if (api_token) {
+            loadCurrentUser();
+        }
+    }, [api_token]);
+
     return (
         <Router>
             <>
-                <Header />
+                <Header user={ user } />
 
                 <main>
 
@@ -30,7 +63,7 @@ function App() {
                         </Route>
 
                         <Route exact path="/home/login">
-                            <Login />
+                            <Login setToken={ setToken } />
                         </Route>
 
                     </Switch>
