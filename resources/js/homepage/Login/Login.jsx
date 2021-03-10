@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Login(props) {
 
@@ -14,7 +14,7 @@ export default function Login(props) {
         event.preventDefault();
 
         let request_data = {email, password};
-        const response = await fetch('/login', {
+        const response = await fetch('/api/token', {
             method: 'POST',
             body: JSON.stringify(request_data),
             headers: {
@@ -25,11 +25,11 @@ export default function Login(props) {
         });
         const response_data = await response.json();
 
-        if (response.status == 200) {
-            location.href = '/';
-        } else {
-            setErrors(response_data.errors);
-        }
+        // if (response.status == 200) {
+        //     location.href = '/';
+        // } else {
+        //     setErrors(response_data.errors);
+        // }
     }
 
     const handleChange = (event) => {
@@ -67,5 +67,5 @@ export default function Login(props) {
             <button>Login</button>
 
         </form>
-    );
+    )
 }

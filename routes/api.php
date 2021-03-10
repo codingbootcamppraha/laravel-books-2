@@ -18,6 +18,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+//       /api/token
+Route::post('/token', 'Api\UserController@token');
+
+//                                              only if authenticated through Sanctum
+Route::get('/user', 'Api\UserController@user')->middleware('auth:sanctum');
+
+//                                                   only if authenticated through Sanctum
+Route::post('/logout', 'Api\UserController@logout')->middleware('auth:sanctum');
+
+
 //      /api/books
 Route::get('/books', 'Api\BookController@index');
 
