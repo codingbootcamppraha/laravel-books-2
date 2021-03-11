@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
 
 import Header from './Header/Header.jsx';
 import BooksListShort from './BooksListShort/BooksListShort.jsx';
@@ -13,10 +9,12 @@ import Login from './Login/Login.jsx';
 
 import './index.scss';
 
+
+export const UserContext = React.createContext(null);
+export const ColorSchemeContext = React.createContext(null);
+
 function App() {
-
     const [api_token, setApiToken] = useState(localStorage.getItem('api_token'));
-
     const [user, setUser] = useState(null);
 
     const setToken = (token) => {
@@ -25,7 +23,6 @@ function App() {
 
         localStorage.setItem('api_token', token);
     }
-
     const loadCurrentUser = async () => {
         console.log('Loading current user information');
 
@@ -40,36 +37,45 @@ function App() {
         const data = await response.json();
 
         setUser(data.user);
-    }
 
+        console.log('user data', data.user);
+    }
     useEffect(() => {
         if (api_token) {
             loadCurrentUser();
         }
     }, [api_token]);
 
+    const [colorScheme, setColorScheme] = useState('light');
+
     return (
         <Router>
-            <>
-                <Header user={ user } />
 
-                <main>
+            <UserContext.Provider value={user}>
+                <ColorSchemeContext.Provider value={{
+                    colorScheme: colorScheme,
+                    setColorScheme: setColorScheme
+                }}>
 
-                    <Switch>
+                    <p>You current color scheme: {colorScheme}</p>
+                    <Header/>
 
-                        <Route exact path="/home">
-                            <BooksListShort />
-                            <BookOfTheWeek />
-                        </Route>
+                    <main>
+                        <Switch>
 
-                        <Route exact path="/home/login">
-                            <Login setToken={ setToken } />
-                        </Route>
+                            <Route exact path="/home">
+                                <BooksListShort/>
+                                <BookOfTheWeek/>
+                            </Route>
 
-                    </Switch>
+                            <Route exact path="/home/login">
+                                <Login setToken={setToken}/>
+                            </Route>
 
-                </main>
-            </>
+                        </Switch>
+                    </main>
+                </ColorSchemeContext.Provider>
+            </UserContext.Provider>
         </Router>
     );
 }

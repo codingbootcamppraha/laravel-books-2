@@ -434,33 +434,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Header)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../index */ "./resources/js/homepage/index.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
-function Header(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("header", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h1", {
-      children: ["The", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "Book", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "Database"]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("nav", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+
+
+function User(props) {
+  var user = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_index__WEBPACK_IMPORTED_MODULE_1__.UserContext);
+  console.log('user data in User component', user);
+  if (user) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: "user-info",
+    children: ["Logged in as ", user.name]
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+    to: "/home/login",
+    children: "Login"
+  });
+}
+
+function Header() {
+  var colorScheme = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_index__WEBPACK_IMPORTED_MODULE_1__.ColorSchemeContext);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("header", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h1", {
+      children: ["The", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Book", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Database"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("nav", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        onClick: function onClick() {
+          return colorScheme.setColorScheme('light');
+        },
+        children: "Switch to Light"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        onClick: function onClick() {
+          return colorScheme.setColorScheme('dark');
+        },
+        children: "Switch to Dark"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
         href: "/",
         children: "Home"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
         href: "/books",
         children: "List of books"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
         href: "/book-of-the-week",
         children: "Book of the week"
-      }), props.user ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "user-info",
-        children: ["Logged in as ", props.user.name]
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/home/login",
-        children: "Login"
-      })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(User, {})]
     })]
   });
 }
@@ -619,6 +640,162 @@ function Login(props) {
 
 /***/ }),
 
+/***/ "./resources/js/homepage/index.jsx":
+/*!*****************************************!*\
+  !*** ./resources/js/homepage/index.jsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserContext": () => (/* binding */ UserContext),
+/* harmony export */   "ColorSchemeContext": () => (/* binding */ ColorSchemeContext)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _Header_Header_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Header/Header.jsx */ "./resources/js/homepage/Header/Header.jsx");
+/* harmony import */ var _BooksListShort_BooksListShort_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./BooksListShort/BooksListShort.jsx */ "./resources/js/homepage/BooksListShort/BooksListShort.jsx");
+/* harmony import */ var _BookOfTheWeek_BookOfTheWeek_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./BookOfTheWeek/BookOfTheWeek.jsx */ "./resources/js/homepage/BookOfTheWeek/BookOfTheWeek.jsx");
+/* harmony import */ var _Login_Login_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Login/Login.jsx */ "./resources/js/homepage/Login/Login.jsx");
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./index.scss */ "./resources/js/homepage/index.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+var UserContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createContext(null);
+var ColorSchemeContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createContext(null);
+
+function App() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(localStorage.getItem('api_token')),
+      _useState2 = _slicedToArray(_useState, 2),
+      api_token = _useState2[0],
+      setApiToken = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      user = _useState4[0],
+      setUser = _useState4[1];
+
+  var setToken = function setToken(token) {
+    setApiToken(token);
+    localStorage.setItem('api_token', token);
+  };
+
+  var loadCurrentUser = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var response, data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              console.log('Loading current user information');
+              _context.next = 3;
+              return fetch('/api/user', {
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-type': 'application/json',
+                  'Authorization': "Bearer ".concat(api_token)
+                }
+              });
+
+            case 3:
+              response = _context.sent;
+              _context.next = 6;
+              return response.json();
+
+            case 6:
+              data = _context.sent;
+              setUser(data.user);
+              console.log('user data', data.user);
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function loadCurrentUser() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    if (api_token) {
+      loadCurrentUser();
+    }
+  }, [api_token]);
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('light'),
+      _useState6 = _slicedToArray(_useState5, 2),
+      colorScheme = _useState6[0],
+      setColorScheme = _useState6[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.BrowserRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(UserContext.Provider, {
+      value: user,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(ColorSchemeContext.Provider, {
+        value: {
+          colorScheme: colorScheme,
+          setColorScheme: setColorScheme
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("p", {
+          children: ["You current color scheme: ", colorScheme]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Header_Header_jsx__WEBPACK_IMPORTED_MODULE_3__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("main", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Switch, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+              exact: true,
+              path: "/home",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_BooksListShort_BooksListShort_jsx__WEBPACK_IMPORTED_MODULE_4__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_BookOfTheWeek_BookOfTheWeek_jsx__WEBPACK_IMPORTED_MODULE_5__.default, {})]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+              exact: true,
+              path: "/home/login",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Login_Login_jsx__WEBPACK_IMPORTED_MODULE_6__.default, {
+                setToken: setToken
+              })
+            })]
+          })
+        })]
+      })
+    })
+  });
+}
+
+react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(App, {}), document.getElementById('app'));
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/homepage/index.scss":
 /*!********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/homepage/index.scss ***!
@@ -640,7 +817,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin-ext);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\n  box-sizing: border-box;\n}\n\nhtml {\n  font-family: \"Open Sans\", sans-serif;\n}\n\nbody {\n  margin: 0;\n}\n\n#app {\n  max-width: 1200px;\n  margin: 0 auto;\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\nheader {\n  background-color: #180c50;\n  color: #ffffff;\n  display: flex;\n  min-height: 8em;\n  padding: 2em;\n  align-items: center;\n}\n\nheader h1 {\n  /* font-size: 14px; */\n  line-height: 0.8em;\n  font-weight: 300;\n  margin: 0 auto 0 0;\n  text-align: left;\n}\n\nheader nav {\n  display: flex;\n  align-self: stretch;\n}\n\nheader nav a {\n  align-self: stretch;\n  color: white;\n  text-decoration: none;\n  margin: 0 1em;\n  border-bottom: 1px solid white;\n}\n\nheader nav a:hover {\n  border-color: #62bdd8;\n}\n\nfooter {\n  background-color: #efefef;\n  text-align: center;\n  padding: 1em;\n}\n\nmain {\n  flex-grow: 1;\n  background-color: #dabda6;\n  padding: 0 2em;\n  display: flex;\n}\n\nmain > section {\n  margin: 2em;\n  /* flex-grow: 1; */\n  flex: 1;\n}\n\nmain > section h2 {\n  text-align: center;\n  font-weight: 300;\n}\n\n.book-list {\n  display: flex;\n  flex-direction: column;\n}\n\n.latest-books h1 {\n  font-size: 2em;\n  font-weight: 300;\n  margin-bottom: 0;\n}\n\n.book-list {\n  flex-grow: 1;\n  display: flex;\n  flex-direction: column;\n  margin-top: 0;\n  padding: 0;\n  list-style: none;\n}\n.book-list__book {\n  margin-bottom: 0.25em;\n  border: 1px solid #404040;\n  border-radius: 0.125em;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.book-list__book-info {\n  flex-grow: 1;\n  padding: 0.25em 0.5em;\n}\n.book-list__book-author {\n  font-size: 0.75em;\n}\n.book-list__book-image {\n  align-self: stretch;\n  color: #ffffff;\n  margin-left: 1em;\n  display: flex;\n  height: 3em;\n}\n.book-list__book-image img {\n  display: block;\n  height: 3em;\n}\n\n.book-of-week {\n  display: flex;\n  flex-direction: column;\n}\n\n.book-preview {\n  display: flex;\n}\n.book-preview__image {\n  margin-right: 1em;\n}\n.book-preview__title {\n  font-weight: 400;\n  font-size: 1.5em;\n  margin-top: 0;\n  margin-bottom: 0.5em;\n}\n.book-preview__authors {\n  margin: 1em 0;\n  display: flex;\n}\n.book-preview__authors span {\n  margin-right: 0.5em;\n}\n.book-preview__description {\n  font-size: 0.875em;\n  line-height: 1.5em;\n}\n\n.message {\n  flex-grow: 1;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.loader {\n  display: inline-block;\n  position: relative;\n  width: 64px;\n  height: 32px;\n}\n\n.loader div {\n  position: absolute;\n  top: 13px;\n  width: 11px;\n  height: 11px;\n  border-radius: 50%;\n  background: rgba(255, 255, 255, 0.75);\n  -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n          animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n\n.loader div:nth-child(1) {\n  left: 6px;\n  -webkit-animation: loader1 0.6s infinite;\n          animation: loader1 0.6s infinite;\n}\n\n.loader div:nth-child(2) {\n  left: 6px;\n  -webkit-animation: loader2 0.6s infinite;\n          animation: loader2 0.6s infinite;\n}\n\n.loader div:nth-child(3) {\n  left: 26px;\n  -webkit-animation: loader2 0.6s infinite;\n          animation: loader2 0.6s infinite;\n}\n\n.loader div:nth-child(4) {\n  left: 45px;\n  -webkit-animation: loader3 0.6s infinite;\n          animation: loader3 0.6s infinite;\n}\n\n@-webkit-keyframes loader1 {\n  0% {\n    transform: scale(0);\n  }\n  100% {\n    transform: scale(1);\n  }\n}\n\n@keyframes loader1 {\n  0% {\n    transform: scale(0);\n  }\n  100% {\n    transform: scale(1);\n  }\n}\n@-webkit-keyframes loader3 {\n  0% {\n    transform: scale(1);\n  }\n  100% {\n    transform: scale(0);\n  }\n}\n@keyframes loader3 {\n  0% {\n    transform: scale(1);\n  }\n  100% {\n    transform: scale(0);\n  }\n}\n@-webkit-keyframes loader2 {\n  0% {\n    transform: translate(0, 0);\n  }\n  100% {\n    transform: translate(19px, 0);\n  }\n}\n@keyframes loader2 {\n  0% {\n    transform: translate(0, 0);\n  }\n  100% {\n    transform: translate(19px, 0);\n  }\n}", "",{"version":3,"sources":["webpack://./resources/js/homepage/index.scss"],"names":[],"mappings":"AAEA;EACE,sBAAA;AAAF;;AAGA;EACE,oCAAA;AAAF;;AAGA;EACE,SAAA;AAAF;;AAIA;EACE,iBAAA;EACA,cAAA;EACA,iBAAA;EACA,aAAA;EACA,sBAAA;AADF;;AAIA;EACE,yBAAA;EACA,cAAA;EACA,aAAA;EACA,eAAA;EACA,YAAA;EACA,mBAAA;AADF;;AAIA;EACE,qBAAA;EACA,kBAAA;EACA,gBAAA;EACA,kBAAA;EACA,gBAAA;AADF;;AAIA;EACE,aAAA;EACA,mBAAA;AADF;;AAIA;EACE,mBAAA;EACA,YAAA;EACA,qBAAA;EACA,aAAA;EACA,8BAAA;AADF;;AAGA;EACE,qBAAA;AAAF;;AAGA;EACE,yBAAA;EACA,kBAAA;EACA,YAAA;AAAF;;AAIA;EACE,YAAA;EACA,yBAAA;EACA,cAAA;EACA,aAAA;AADF;;AAIA;EACE,WAAA;EACA,kBAAA;EACA,OAAA;AADF;;AAIA;EACE,kBAAA;EACA,gBAAA;AADF;;AAIA;EACE,aAAA;EACA,sBAAA;AADF;;AAIE;EACE,cAAA;EACA,gBAAA;EACA,gBAAA;AADJ;;AAIA;EACE,YAAA;EACA,aAAA;EACA,sBAAA;EACA,aAAA;EACA,UAAA;EACA,gBAAA;AADF;AAGE;EACE,qBAAA;EACA,yBAAA;EACA,sBAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;AADJ;AAIE;EACE,YAAA;EACA,qBAAA;AAFJ;AAKE;EACE,iBAAA;AAHJ;AAME;EACE,mBAAA;EACA,cAAA;EACA,gBAAA;EACA,aAAA;EACA,WAAA;AAJJ;AAMI;EACE,cAAA;EACA,WAAA;AAJN;;AASA;EACE,aAAA;EACA,sBAAA;AANF;;AAQA;EACE,aAAA;AALF;AAOE;EACE,iBAAA;AALJ;AAQE;EACE,gBAAA;EACA,gBAAA;EACA,aAAA;EACA,oBAAA;AANJ;AASE;EACE,aAAA;EACA,aAAA;AAPJ;AASI;EACE,mBAAA;AAPN;AAWE;EACE,kBAAA;EACA,kBAAA;AATJ;;AAaA;EACE,YAAA;EACA,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;AAVF;;AAaA;EACE,qBAAA;EACA,kBAAA;EACA,WAAA;EACA,YAAA;AAVF;;AAYA;EACE,kBAAA;EACA,SAAA;EACA,WAAA;EACA,YAAA;EACA,kBAAA;EACA,qCAAA;EACA,2DAAA;UAAA,mDAAA;AATF;;AAWA;EACE,SAAA;EACA,wCAAA;UAAA,gCAAA;AARF;;AAUA;EACE,SAAA;EACA,wCAAA;UAAA,gCAAA;AAPF;;AASA;EACE,UAAA;EACA,wCAAA;UAAA,gCAAA;AANF;;AAQA;EACE,UAAA;EACA,wCAAA;UAAA,gCAAA;AALF;;AAOA;EACE;IACE,mBAAA;EAJF;EAMA;IACE,mBAAA;EAJF;AACF;;AAFA;EACE;IACE,mBAAA;EAJF;EAMA;IACE,mBAAA;EAJF;AACF;AAMA;EACE;IACE,mBAAA;EAJF;EAMA;IACE,mBAAA;EAJF;AACF;AAFA;EACE;IACE,mBAAA;EAJF;EAMA;IACE,mBAAA;EAJF;AACF;AAMA;EACE;IACE,0BAAA;EAJF;EAMA;IACE,6BAAA;EAJF;AACF;AAFA;EACE;IACE,0BAAA;EAJF;EAMA;IACE,6BAAA;EAJF;AACF","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin-ext');\r\n\r\n* {\r\n  box-sizing: border-box;\r\n}\r\n\r\nhtml {\r\n  font-family: 'Open Sans', sans-serif;\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n}\r\n\r\n\r\n#app {\r\n  max-width: 1200px;\r\n  margin: 0 auto;\r\n  min-height: 100vh;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\nheader {\r\n  background-color: #180c50;\r\n  color: #ffffff;\r\n  display: flex;\r\n  min-height: 8em;\r\n  padding: 2em;\r\n  align-items: center;\r\n}\r\n\r\nheader h1 {\r\n  /* font-size: 14px; */\r\n  line-height: 0.8em;\r\n  font-weight: 300;\r\n  margin: 0 auto 0 0;\r\n  text-align: left;\r\n}\r\n\r\nheader nav {\r\n  display: flex;\r\n  align-self: stretch;\r\n}\r\n\r\nheader nav a {\r\n  align-self: stretch;\r\n  color: white;\r\n  text-decoration: none;\r\n  margin: 0 1em;\r\n  border-bottom: 1px solid white;\r\n}\r\nheader nav a:hover {\r\n  border-color: rgb(98, 189, 216);\r\n}\r\n\r\nfooter {\r\n  background-color: #efefef;\r\n  text-align: center;\r\n  padding: 1em;\r\n}\r\n\r\n\r\nmain {\r\n  flex-grow: 1;\r\n  background-color: #dabda6;\r\n  padding: 0 2em;\r\n  display: flex;\r\n}\r\n\r\nmain > section {\r\n  margin: 2em;\r\n  /* flex-grow: 1; */\r\n  flex: 1;\r\n}\r\n\r\nmain > section h2 {\r\n  text-align: center;\r\n  font-weight: 300;\r\n}\r\n\r\n.book-list {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n.latest-books {\r\n  h1 {\r\n    font-size: 2em;\r\n    font-weight: 300;\r\n    margin-bottom: 0;\r\n  }\r\n}\r\n.book-list {\r\n  flex-grow: 1;\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin-top: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n\r\n  &__book {\r\n    margin-bottom: 0.25em;\r\n    border: 1px solid #404040;\r\n    border-radius: 0.125em;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n  }\r\n\r\n  &__book-info {\r\n    flex-grow: 1;\r\n    padding: 0.25em 0.5em;\r\n  }\r\n\r\n  &__book-author {\r\n    font-size: 0.75em;\r\n  }\r\n\r\n  &__book-image {\r\n    align-self: stretch;\r\n    color: #ffffff;\r\n    margin-left: 1em;\r\n    display: flex;\r\n    height: 3em;\r\n\r\n    img {\r\n      display: block;\r\n      height: 3em;\r\n    }\r\n  }\r\n}\r\n\r\n.book-of-week {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n.book-preview {\r\n  display: flex;\r\n\r\n  &__image {\r\n    margin-right: 1em;\r\n  }\r\n\r\n  &__title {\r\n    font-weight: 400;\r\n    font-size: 1.5em;\r\n    margin-top: 0;\r\n    margin-bottom: 0.5em;\r\n  }\r\n\r\n  &__authors {\r\n    margin: 1em 0;\r\n    display: flex;\r\n\r\n    span {\r\n      margin-right: 0.5em;\r\n    }\r\n  }\r\n\r\n  &__description {\r\n    font-size: 0.875em;\r\n    line-height: 1.5em;\r\n  }\r\n}\r\n\r\n.message {\r\n  flex-grow: 1;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.loader {\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 64px;\r\n  height: 32px;\r\n}\r\n.loader div {\r\n  position: absolute;\r\n  top: 13px;\r\n  width: 11px;\r\n  height: 11px;\r\n  border-radius: 50%;\r\n  background: rgba(255, 255, 255, 0.75);\r\n  animation-timing-function: cubic-bezier(0, 1, 1, 0);\r\n}\r\n.loader div:nth-child(1) {\r\n  left: 6px;\r\n  animation: loader1 0.6s infinite;\r\n}\r\n.loader div:nth-child(2) {\r\n  left: 6px;\r\n  animation: loader2 0.6s infinite;\r\n}\r\n.loader div:nth-child(3) {\r\n  left: 26px;\r\n  animation: loader2 0.6s infinite;\r\n}\r\n.loader div:nth-child(4) {\r\n  left: 45px;\r\n  animation: loader3 0.6s infinite;\r\n}\r\n@keyframes loader1 {\r\n  0% {\r\n    transform: scale(0);\r\n  }\r\n  100% {\r\n    transform: scale(1);\r\n  }\r\n}\r\n@keyframes loader3 {\r\n  0% {\r\n    transform: scale(1);\r\n  }\r\n  100% {\r\n    transform: scale(0);\r\n  }\r\n}\r\n@keyframes loader2 {\r\n  0% {\r\n    transform: translate(0, 0);\r\n  }\r\n  100% {\r\n    transform: translate(19px, 0);\r\n  }\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n  box-sizing: border-box;\n}\n\nhtml {\n  font-family: \"Open Sans\", sans-serif;\n}\n\nbody {\n  margin: 0;\n}\n\n#app {\n  max-width: 1200px;\n  margin: 0 auto;\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\nheader {\n  background-color: #180c50;\n  color: #ffffff;\n  display: flex;\n  min-height: 8em;\n  padding: 2em;\n  align-items: center;\n}\n\nheader h1 {\n  /* font-size: 14px; */\n  line-height: 0.8em;\n  font-weight: 300;\n  margin: 0 auto 0 0;\n  text-align: left;\n}\n\nheader nav {\n  display: flex;\n  align-self: stretch;\n}\n\nheader nav a {\n  align-self: stretch;\n  color: white;\n  text-decoration: none;\n  margin: 0 1em;\n  border-bottom: 1px solid white;\n}\n\nheader nav a:hover {\n  border-color: #62bdd8;\n}\n\nfooter {\n  background-color: #efefef;\n  text-align: center;\n  padding: 1em;\n}\n\nmain {\n  flex-grow: 1;\n  background-color: #dabda6;\n  padding: 0 2em;\n  display: flex;\n}\n\nmain > section {\n  margin: 2em;\n  /* flex-grow: 1; */\n  flex: 1;\n}\n\nmain > section h2 {\n  text-align: center;\n  font-weight: 300;\n}\n\n.book-list {\n  display: flex;\n  flex-direction: column;\n}\n\n.latest-books h1 {\n  font-size: 2em;\n  font-weight: 300;\n  margin-bottom: 0;\n}\n\n.book-list {\n  flex-grow: 1;\n  display: flex;\n  flex-direction: column;\n  margin-top: 0;\n  padding: 0;\n  list-style: none;\n}\n.book-list__book {\n  margin-bottom: 0.25em;\n  border: 1px solid #404040;\n  border-radius: 0.125em;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.book-list__book-info {\n  flex-grow: 1;\n  padding: 0.25em 0.5em;\n}\n.book-list__book-author {\n  font-size: 0.75em;\n}\n.book-list__book-image {\n  align-self: stretch;\n  color: #ffffff;\n  margin-left: 1em;\n  display: flex;\n  height: 3em;\n}\n.book-list__book-image img {\n  display: block;\n  height: 3em;\n}\n\n.book-of-week {\n  display: flex;\n  flex-direction: column;\n}\n\n.book-preview {\n  display: flex;\n}\n.book-preview__image {\n  margin-right: 1em;\n}\n.book-preview__title {\n  font-weight: 400;\n  font-size: 1.5em;\n  margin-top: 0;\n  margin-bottom: 0.5em;\n}\n.book-preview__authors {\n  margin: 1em 0;\n  display: flex;\n}\n.book-preview__authors span {\n  margin-right: 0.5em;\n}\n.book-preview__description {\n  font-size: 0.875em;\n  line-height: 1.5em;\n}\n\n.message {\n  flex-grow: 1;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.loader {\n  display: inline-block;\n  position: relative;\n  width: 64px;\n  height: 32px;\n}\n\n.loader div {\n  position: absolute;\n  top: 13px;\n  width: 11px;\n  height: 11px;\n  border-radius: 50%;\n  background: rgba(255, 255, 255, 0.75);\n  -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n          animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n\n.loader div:nth-child(1) {\n  left: 6px;\n  -webkit-animation: loader1 0.6s infinite;\n          animation: loader1 0.6s infinite;\n}\n\n.loader div:nth-child(2) {\n  left: 6px;\n  -webkit-animation: loader2 0.6s infinite;\n          animation: loader2 0.6s infinite;\n}\n\n.loader div:nth-child(3) {\n  left: 26px;\n  -webkit-animation: loader2 0.6s infinite;\n          animation: loader2 0.6s infinite;\n}\n\n.loader div:nth-child(4) {\n  left: 45px;\n  -webkit-animation: loader3 0.6s infinite;\n          animation: loader3 0.6s infinite;\n}\n\n@-webkit-keyframes loader1 {\n  0% {\n    transform: scale(0);\n  }\n  100% {\n    transform: scale(1);\n  }\n}\n\n@keyframes loader1 {\n  0% {\n    transform: scale(0);\n  }\n  100% {\n    transform: scale(1);\n  }\n}\n@-webkit-keyframes loader3 {\n  0% {\n    transform: scale(1);\n  }\n  100% {\n    transform: scale(0);\n  }\n}\n@keyframes loader3 {\n  0% {\n    transform: scale(1);\n  }\n  100% {\n    transform: scale(0);\n  }\n}\n@-webkit-keyframes loader2 {\n  0% {\n    transform: translate(0, 0);\n  }\n  100% {\n    transform: translate(19px, 0);\n  }\n}\n@keyframes loader2 {\n  0% {\n    transform: translate(0, 0);\n  }\n  100% {\n    transform: translate(19px, 0);\n  }\n}", "",{"version":3,"sources":["webpack://./resources/js/homepage/index.scss"],"names":[],"mappings":"AAEA;EACE,sBAAA;AAAF;;AAGA;EACE,oCAAA;AAAF;;AAGA;EACE,SAAA;AAAF;;AAIA;EACE,iBAAA;EACA,cAAA;EACA,iBAAA;EACA,aAAA;EACA,sBAAA;AADF;;AAIA;EACE,yBAAA;EACA,cAAA;EACA,aAAA;EACA,eAAA;EACA,YAAA;EACA,mBAAA;AADF;;AAIA;EACE,qBAAA;EACA,kBAAA;EACA,gBAAA;EACA,kBAAA;EACA,gBAAA;AADF;;AAIA;EACE,aAAA;EACA,mBAAA;AADF;;AAIA;EACE,mBAAA;EACA,YAAA;EACA,qBAAA;EACA,aAAA;EACA,8BAAA;AADF;;AAGA;EACE,qBAAA;AAAF;;AAGA;EACE,yBAAA;EACA,kBAAA;EACA,YAAA;AAAF;;AAIA;EACE,YAAA;EACA,yBAAA;EACA,cAAA;EACA,aAAA;AADF;;AAIA;EACE,WAAA;EACA,kBAAA;EACA,OAAA;AADF;;AAIA;EACE,kBAAA;EACA,gBAAA;AADF;;AAIA;EACE,aAAA;EACA,sBAAA;AADF;;AAIE;EACE,cAAA;EACA,gBAAA;EACA,gBAAA;AADJ;;AAIA;EACE,YAAA;EACA,aAAA;EACA,sBAAA;EACA,aAAA;EACA,UAAA;EACA,gBAAA;AADF;AAGE;EACE,qBAAA;EACA,yBAAA;EACA,sBAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;AADJ;AAIE;EACE,YAAA;EACA,qBAAA;AAFJ;AAKE;EACE,iBAAA;AAHJ;AAME;EACE,mBAAA;EACA,cAAA;EACA,gBAAA;EACA,aAAA;EACA,WAAA;AAJJ;AAMI;EACE,cAAA;EACA,WAAA;AAJN;;AASA;EACE,aAAA;EACA,sBAAA;AANF;;AAQA;EACE,aAAA;AALF;AAOE;EACE,iBAAA;AALJ;AAQE;EACE,gBAAA;EACA,gBAAA;EACA,aAAA;EACA,oBAAA;AANJ;AASE;EACE,aAAA;EACA,aAAA;AAPJ;AASI;EACE,mBAAA;AAPN;AAWE;EACE,kBAAA;EACA,kBAAA;AATJ;;AAaA;EACE,YAAA;EACA,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;AAVF;;AAaA;EACE,qBAAA;EACA,kBAAA;EACA,WAAA;EACA,YAAA;AAVF;;AAYA;EACE,kBAAA;EACA,SAAA;EACA,WAAA;EACA,YAAA;EACA,kBAAA;EACA,qCAAA;EACA,2DAAA;UAAA,mDAAA;AATF;;AAWA;EACE,SAAA;EACA,wCAAA;UAAA,gCAAA;AARF;;AAUA;EACE,SAAA;EACA,wCAAA;UAAA,gCAAA;AAPF;;AASA;EACE,UAAA;EACA,wCAAA;UAAA,gCAAA;AANF;;AAQA;EACE,UAAA;EACA,wCAAA;UAAA,gCAAA;AALF;;AAOA;EACE;IACE,mBAAA;EAJF;EAMA;IACE,mBAAA;EAJF;AACF;;AAFA;EACE;IACE,mBAAA;EAJF;EAMA;IACE,mBAAA;EAJF;AACF;AAMA;EACE;IACE,mBAAA;EAJF;EAMA;IACE,mBAAA;EAJF;AACF;AAFA;EACE;IACE,mBAAA;EAJF;EAMA;IACE,mBAAA;EAJF;AACF;AAMA;EACE;IACE,0BAAA;EAJF;EAMA;IACE,6BAAA;EAJF;AACF;AAFA;EACE;IACE,0BAAA;EAJF;EAMA;IACE,6BAAA;EAJF;AACF","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin-ext');\n\n* {\n  box-sizing: border-box;\n}\n\nhtml {\n  font-family: 'Open Sans', sans-serif;\n}\n\nbody {\n  margin: 0;\n}\n\n\n#app {\n  max-width: 1200px;\n  margin: 0 auto;\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\nheader {\n  background-color: #180c50;\n  color: #ffffff;\n  display: flex;\n  min-height: 8em;\n  padding: 2em;\n  align-items: center;\n}\n\nheader h1 {\n  /* font-size: 14px; */\n  line-height: 0.8em;\n  font-weight: 300;\n  margin: 0 auto 0 0;\n  text-align: left;\n}\n\nheader nav {\n  display: flex;\n  align-self: stretch;\n}\n\nheader nav a {\n  align-self: stretch;\n  color: white;\n  text-decoration: none;\n  margin: 0 1em;\n  border-bottom: 1px solid white;\n}\nheader nav a:hover {\n  border-color: rgb(98, 189, 216);\n}\n\nfooter {\n  background-color: #efefef;\n  text-align: center;\n  padding: 1em;\n}\n\n\nmain {\n  flex-grow: 1;\n  background-color: #dabda6;\n  padding: 0 2em;\n  display: flex;\n}\n\nmain > section {\n  margin: 2em;\n  /* flex-grow: 1; */\n  flex: 1;\n}\n\nmain > section h2 {\n  text-align: center;\n  font-weight: 300;\n}\n\n.book-list {\n  display: flex;\n  flex-direction: column;\n}\n.latest-books {\n  h1 {\n    font-size: 2em;\n    font-weight: 300;\n    margin-bottom: 0;\n  }\n}\n.book-list {\n  flex-grow: 1;\n  display: flex;\n  flex-direction: column;\n  margin-top: 0;\n  padding: 0;\n  list-style: none;\n\n  &__book {\n    margin-bottom: 0.25em;\n    border: 1px solid #404040;\n    border-radius: 0.125em;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n  }\n\n  &__book-info {\n    flex-grow: 1;\n    padding: 0.25em 0.5em;\n  }\n\n  &__book-author {\n    font-size: 0.75em;\n  }\n\n  &__book-image {\n    align-self: stretch;\n    color: #ffffff;\n    margin-left: 1em;\n    display: flex;\n    height: 3em;\n\n    img {\n      display: block;\n      height: 3em;\n    }\n  }\n}\n\n.book-of-week {\n  display: flex;\n  flex-direction: column;\n}\n.book-preview {\n  display: flex;\n\n  &__image {\n    margin-right: 1em;\n  }\n\n  &__title {\n    font-weight: 400;\n    font-size: 1.5em;\n    margin-top: 0;\n    margin-bottom: 0.5em;\n  }\n\n  &__authors {\n    margin: 1em 0;\n    display: flex;\n\n    span {\n      margin-right: 0.5em;\n    }\n  }\n\n  &__description {\n    font-size: 0.875em;\n    line-height: 1.5em;\n  }\n}\n\n.message {\n  flex-grow: 1;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.loader {\n  display: inline-block;\n  position: relative;\n  width: 64px;\n  height: 32px;\n}\n.loader div {\n  position: absolute;\n  top: 13px;\n  width: 11px;\n  height: 11px;\n  border-radius: 50%;\n  background: rgba(255, 255, 255, 0.75);\n  animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div:nth-child(1) {\n  left: 6px;\n  animation: loader1 0.6s infinite;\n}\n.loader div:nth-child(2) {\n  left: 6px;\n  animation: loader2 0.6s infinite;\n}\n.loader div:nth-child(3) {\n  left: 26px;\n  animation: loader2 0.6s infinite;\n}\n.loader div:nth-child(4) {\n  left: 45px;\n  animation: loader3 0.6s infinite;\n}\n@keyframes loader1 {\n  0% {\n    transform: scale(0);\n  }\n  100% {\n    transform: scale(1);\n  }\n}\n@keyframes loader3 {\n  0% {\n    transform: scale(1);\n  }\n  100% {\n    transform: scale(0);\n  }\n}\n@keyframes loader2 {\n  0% {\n    transform: translate(0, 0);\n  }\n  100% {\n    transform: translate(19px, 0);\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -37230,142 +37407,12 @@ function valueEqual(a, b) {
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
-/*!*****************************************!*\
-  !*** ./resources/js/homepage/index.jsx ***!
-  \*****************************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _Header_Header_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Header/Header.jsx */ "./resources/js/homepage/Header/Header.jsx");
-/* harmony import */ var _BooksListShort_BooksListShort_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./BooksListShort/BooksListShort.jsx */ "./resources/js/homepage/BooksListShort/BooksListShort.jsx");
-/* harmony import */ var _BookOfTheWeek_BookOfTheWeek_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./BookOfTheWeek/BookOfTheWeek.jsx */ "./resources/js/homepage/BookOfTheWeek/BookOfTheWeek.jsx");
-/* harmony import */ var _Login_Login_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Login/Login.jsx */ "./resources/js/homepage/Login/Login.jsx");
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./index.scss */ "./resources/js/homepage/index.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-function App() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(localStorage.getItem('api_token')),
-      _useState2 = _slicedToArray(_useState, 2),
-      api_token = _useState2[0],
-      setApiToken = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
-      _useState4 = _slicedToArray(_useState3, 2),
-      user = _useState4[0],
-      setUser = _useState4[1];
-
-  var setToken = function setToken(token) {
-    setApiToken(token);
-    localStorage.setItem('api_token', token);
-  };
-
-  var loadCurrentUser = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var response, data;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              console.log('Loading current user information');
-              _context.next = 3;
-              return fetch('/api/user', {
-                headers: {
-                  'Accept': 'application/json',
-                  'Content-type': 'application/json',
-                  'Authorization': "Bearer ".concat(api_token)
-                }
-              });
-
-            case 3:
-              response = _context.sent;
-              _context.next = 6;
-              return response.json();
-
-            case 6:
-              data = _context.sent;
-              setUser(data.user);
-
-            case 8:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function loadCurrentUser() {
-      return _ref.apply(this, arguments);
-    };
-  }();
-
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    if (api_token) {
-      loadCurrentUser();
-    }
-  }, [api_token]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.BrowserRouter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Header_Header_jsx__WEBPACK_IMPORTED_MODULE_3__.default, {
-        user: user
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("main", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Switch, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
-            exact: true,
-            path: "/home",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_BooksListShort_BooksListShort_jsx__WEBPACK_IMPORTED_MODULE_4__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_BookOfTheWeek_BookOfTheWeek_jsx__WEBPACK_IMPORTED_MODULE_5__.default, {})]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
-            exact: true,
-            path: "/home/login",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Login_Login_jsx__WEBPACK_IMPORTED_MODULE_6__.default, {
-              setToken: setToken
-            })
-          })]
-        })
-      })]
-    })
-  });
-}
-
-react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(App, {}), document.getElementById('app'));
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/js/homepage/index.jsx");
+/******/ 	
 /******/ })()
 ;
 //# sourceMappingURL=homepage.js.map
