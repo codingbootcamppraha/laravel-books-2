@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,3 +39,34 @@ Route::get('/register', function() {
     }
 
 })->name('register');
+
+
+Route::get('/info', function(){
+    return public_path('uploads');
+//    phpinfo();
+});
+
+Route::view('/upload', 'upload');
+Route::post('/upload', function(Request $request){
+
+//    $filename = $request->file('picture')->store('profile_pictures', 'uploads');
+
+//    return [
+//        $request->file('picture')->getClientOriginalName(),
+//        $request->file('picture')->getClientOriginalExtension(),
+//        $request->file('picture')->getClientMimeType()
+//    ];
+
+
+    $filename = $request->file('picture')->storeAs('profile_pictures',
+        $request->file('picture')->getClientOriginalName(),
+        'uploads'
+    );
+
+
+
+    return $filename;
+
+})->name('upload');
+
+
