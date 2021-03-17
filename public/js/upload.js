@@ -32145,6 +32145,16 @@ function App() {
       file = _useState2[0],
       setFile = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      name = _useState4[0],
+      setName = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      url = _useState6[0],
+      setUrl = _useState6[1];
+
   var handleSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(event) {
       var data, response, response_data;
@@ -32154,8 +32164,9 @@ function App() {
             case 0:
               event.preventDefault();
               data = new FormData();
-              data.append('file', file);
-              _context.next = 5;
+              data.append('picture', file);
+              data.append('name', name);
+              _context.next = 6;
               return fetch('/upload', {
                 method: 'POST',
                 body: data,
@@ -32165,16 +32176,16 @@ function App() {
                 }
               });
 
-            case 5:
+            case 6:
               response = _context.sent;
-              _context.next = 8;
-              return response.json();
+              _context.next = 9;
+              return response.text();
 
-            case 8:
+            case 9:
               response_data = _context.sent;
-              console.log(response_data);
+              setUrl(response_data);
 
-            case 10:
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -32190,9 +32201,19 @@ function App() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
       children: "Upload file"
+    }), url !== null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+      style: {
+        width: '30vw'
+      },
+      src: "/uploads/".concat(url)
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
       onSubmit: handleSubmit,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "text",
+        onChange: function onChange(e) {
+          return setName(e.target.value);
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         type: "file",
         onChange: function onChange(e) {
           return setFile(e.target.files[0]);

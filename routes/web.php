@@ -47,6 +47,8 @@ Route::get('/info', function(){
 });
 
 Route::view('/upload', 'upload');
+Route::view('/upload-react', 'upload-react');
+
 Route::post('/upload', function(Request $request){
 
 //    $filename = $request->file('picture')->store('profile_pictures', 'uploads');
